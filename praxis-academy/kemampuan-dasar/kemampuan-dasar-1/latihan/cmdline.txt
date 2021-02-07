@@ -1,0 +1,295 @@
+1. mkdir -> Membuat folder/direktori baru
+Syntax : C:\Users\acer>mkdir praxis-academy
+
+2. cd-> Menampilkan nama direktori atau mengubah lokasi direktori
+Syntax : C:\Users\acer>cd praxis-academy
+Hasil  : C:\Users\praxis-academy
+
+3. copy con -> Digunakan untuk membuat file baru yang isi nya tergantung pada operator
+Syntax : C:\Users\praxis-academy\Kemampuan-dasar-1\copy con cmdline.txt
+Hasil  : Kosong (Mengisi isi file tersebut)
+
+4. dir -> menampilkan semua file dan subdirektori dalam direktori
+Syntax : C:\Users\acer\praxis-academy\kemampuan-dasar-1>dir
+Hasil  :  Directory of C:\Users\acer\praxis-academy\kemampuan-dasar-1
+
+06/02/2021  18:50    <DIR>          .
+06/02/2021  18:50    <DIR>          ..
+06/02/2021  18:50               173 cmdline.txt
+               1 File(s)            173 bytes
+               2 Dir(s)  30.404.493.312 bytes free
+5. time -> menampilkan dan mengatur waktu
+Syntax : C:\Users\acer\praxis-academy\kemampuan-dasar-1>time
+Hasil  : The current time is: 19:00:38,30
+Enter the new time:
+
+6. diskpart -> melihat, memformat, menghapus disk, membuat volume label, membuat file system
+Syntax : C:\Windows\system32>diskpart
+
+Hasil  :Microsoft DiskPart version 10.0.18362.1171
+
+Copyright (C) Microsoft Corporation.
+On computer: DESKTOP-LID8C70
+
+DISKPART> list volume
+
+  Volume ###  Ltr  Label        Fs     Type        Size     Status     Info
+  ----------  ---  -----------  -----  ----------  -------  ---------  --------
+  Volume 0     D                       DVD-ROM         0 B  No Media
+  Volume 1     C                NTFS   Partition    232 GB  Healthy    Boot
+  Volume 2         Recovery     NTFS   Partition    529 MB  Healthy    Hidden
+  Volume 3                      FAT32  Partition    100 MB  Healthy    System
+  Volume 4     E   New Volume   NTFS   Partition    462 GB  Healthy
+  Volume 5     F   New Volume   NTFS   Partition    468 GB  Healthy
+
+
+7. ipconfig ->untuk menampilkan konfigurasi IP komputer
+Syntax :C:\Windows\system32>ipconfig
+Hasil :Windows IP Configuration
+
+
+Ethernet adapter Ethernet:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Unknown adapter OpenVPN Wintun:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Unknown adapter OpenVPN TAP-Windows6:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Wireless LAN adapter Local Area Connection* 1:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Wireless LAN adapter Local Area Connection* 10:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::f1ab:6420:8632:c808%10
+   IPv4 Address. . . . . . . . . . . : 192.168.137.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . :
+
+Wireless LAN adapter Wi-Fi:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::5400:19e9:3a08:a3e7%9
+   IPv4 Address. . . . . . . . . . . : 10.200.103.216
+   Subnet Mask . . . . . . . . . . . : 255.255.0.0
+   Default Gateway . . . . . . . . . : 10.200.0.1
+
+Ethernet adapter Bluetooth Network Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+
+8. copy -> Menyalin file ke lokasi yang lain
+Syntax : C:\Users\acer\praxis-academy\kemampuan-dasar-1>copy cmdline.txt E:\
+Hasil  :  1 file(s) copied.
+
+9. letterdrive -> berpindah drive
+Syntax : C:\>E:
+Hasil  :E:\>
+
+10. del -> menghapus sebuah file dari direktori yang sedang diakses
+Syntax : E:\>del cmdline.txt
+
+11. whoami -> untuk mengetahui nama user dari komputer kita
+Syntax : C:\Users\acer\praxis-academy>whoami
+Hasil  :desktop-lid8c70\acer
+
+12. where-> menemukan dan menampilkan file dalam direktori 
+Syntax : C:\Users\acer\praxis-academy\kemampuan-dasar-1>where cmdline.txt
+Hasil  :C:\Users\acer\praxis-academy\kemampuan-dasar-1\cmdline.txt
+
+13. vol -> menunjukkan label volume disk dan nomor seri
+Syntax : C:\Users\acer\praxis-academy\kemampuan-dasar-1>vol
+Hasil : Volume in drive C has no label.
+ Volume Serial Number is ECAD-B3AC
+
+14. ver -> menampilkan nomor versi OS yang diinstal
+Syntax :C:\Users\acer\praxis-academy\kemampuan-dasar-1>ver
+Hasil  :Microsoft Windows [Version 10.0.18363.1316]
+
+15.systeminfo -> Menampilakan informasi konfigurasi perangkat
+Syntax :C:\Users\acer\praxis-academy\kemampuan-dasar-1>systeminfo
+Hasil  : Host Name:                 DESKTOP-LID8C70
+OS Name:                   Microsoft Windows 10 Education
+OS Version:                10.0.18363 N/A Build 18363
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Registered Owner:          acer
+Registered Organization:
+Product ID:                00328-00079-79926-AA277
+Original Install Date:     17/09/2019, 15:27:38
+System Boot Time:          06/02/2021, 12:05:57
+System Manufacturer:       Acer
+System Model:              Aspire E5-475G
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+                           [01]: Intel64 Family 6 Model 142 Stepping 9 GenuineIntel ~2511 Mhz
+BIOS Version:              Insyde Corp. V1.21, 06/11/2017
+Windows Directory:         C:\Windows
+System Directory:          C:\Windows\system32
+Boot Device:               \Device\HarddiskVolume4
+System Locale:             en-us;English (United States)
+Input Locale:              en-us;English (United States)
+Time Zone:                 (UTC+07:00) Bangkok, Hanoi, Jakarta
+Total Physical Memory:     12.156 MB
+Available Physical Memory: 6.061 MB
+Virtual Memory: Max Size:  14.844 MB
+Virtual Memory: Available: 6.130 MB
+Virtual Memory: In Use:    8.714 MB
+Page File Location(s):     C:\pagefile.sys
+Domain:                    WORKGROUP
+Logon Server:              \\DESKTOP-LID8C70
+Hotfix(s):                 26 Hotfix(s) Installed.
+                           [01]: KB4586878
+                           [02]: KB4497165
+                           [03]: KB4497727
+                           [04]: KB4515383
+                           [05]: KB4516115
+                           [06]: KB4517245
+                           [07]: KB4520390
+                           [08]: KB4521863
+                           [09]: KB4524569
+                           [10]: KB4528759
+                           [11]: KB4535680
+                           [12]: KB4537759
+                           [13]: KB4538674
+                           [14]: KB4541338
+                           [15]: KB4552152
+                           [16]: KB4559309
+                           [17]: KB4560959
+                           [18]: KB4561600
+                           [19]: KB4565554
+                           [20]: KB4569073
+                           [21]: KB4576751
+                           [22]: KB4577670
+                           [23]: KB4580325
+                           [24]: KB4586863
+                           [25]: KB4598479
+                           [26]: KB4598229
+Network Card(s):           6 NIC(s) Installed.
+                           [01]: Bluetooth Device (Personal Area Network)
+                                 Connection Name: Bluetooth Network Connection
+                                 Status:          Media disconnected
+                           [02]: Realtek PCIe GbE Family Controller
+                                 Connection Name: Ethernet
+                                 Status:          Media disconnected
+                           [03]: Qualcomm Atheros QCA9377 Wireless Network Adapter
+                                 Connection Name: Wi-Fi
+                                 DHCP Enabled:    Yes
+                                 DHCP Server:     1.1.1.1
+                                 IP address(es)
+                                 [01]: 10.200.103.216
+                                 [02]: fe80::5400:19e9:3a08:a3e7
+                           [04]: Microsoft Wi-Fi Direct Virtual Adapter
+                                 Connection Name: Local Area Connection* 10
+                                 DHCP Enabled:    No
+                                 IP address(es)
+                                 [01]: 192.168.137.1
+                                 [02]: fe80::f1ab:6420:8632:c808
+                           [05]: Wintun Userspace Tunnel
+                                 Connection Name: OpenVPN Wintun
+                                 Status:          Media disconnected
+                           [06]: TAP-Windows Adapter V9
+                                 Connection Name: OpenVPN TAP-Windows6
+                                 Status:          Media disconnected
+Hyper-V Requirements:      VM Monitor Mode Extensions: Yes
+                           Virtualization Enabled In Firmware: Yes
+                           Second Level Address Translation: Yes
+                           Data Execution Prevention Available: Yes
+
+16. chkdsk --> mendeteksi dan memperbaiki kesalahan pada cakram
+Syntax :C:\Users\acer\praxis-academy\kemampuan-dasar-1>chkdsk
+Hasil  :
+Stage 1: Examining basic file system structure ...
+  1494016 file records processed.
+File verification completed.
+  22680 large file records processed.
+  0 bad file records processed.
+
+Stage 2: Examining file name linkage ...
+  1287 reparse records processed.
+  2043558 index entries processed.
+Index verification completed.
+  0 unindexed files scanned.
+  0 unindexed files recovered to lost and found.
+  1287 reparse records processed.
+
+Stage 3: Examining security descriptors ...
+Security descriptor verification completed.
+  274772 data files processed.
+CHKDSK is verifying Usn Journal...
+  34987264 USN bytes processed.
+Usn Journal verification completed.
+
+Windows has scanned the file system and found no problems.
+No further action is required.
+
+ 243536895 KB total disk space.
+ 207383684 KB in 1127121 files.
+    642264 KB in 274773 indexes.
+         0 KB in bad sectors.
+   1609335 KB in use by the system.
+     65536 KB occupied by the log file.
+  33901612 KB available on disk.
+
+      4096 bytes in each allocation unit.
+  60884223 total allocation units on disk.
+   8475403 allocation units available on disk.
+
+17. ping --> mengecek koeksi pada suatu host
+Syntax  :ping www.google.com
+Hasil   Pinging www.google.com [172.217.194.105] with 32 bytes of data:
+Reply from 172.217.194.105: bytes=32 time=30ms TTL=106
+Reply from 172.217.194.105: bytes=32 time=40ms TTL=106
+Reply from 172.217.194.105: bytes=32 time=47ms TTL=106
+Reply from 172.217.194.105: bytes=32 time=169ms TTL=106
+
+Ping statistics for 172.217.194.105:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 30ms, Maximum = 169ms, Average = 71ms
+
+18. tracert --> perintah untuk menunjukkan rute yang dilewati paket untu kmencapi tujuan
+syntax :C:\Users\acer\praxis-academy\kemampuan-dasar-1>tracert google.com
+hasil :  1    79 ms     6 ms    59 ms  10.200.0.1
+  2    40 ms     4 ms     5 ms  199.subnet125-160-9.speedy.telkom.net.id [125.160.9.199]
+  3     4 ms     4 ms    90 ms  180.252.2.149
+  4    10 ms     5 ms     5 ms  180.252.3.241
+  5    55 ms    69 ms    29 ms  194.190.240.180.in-addr.arpa [180.240.190.194]
+  6   161 ms    28 ms    66 ms  193.190.240.180.in-addr.arpa [180.240.190.193]
+  7    87 ms    89 ms    30 ms  82.205.240.180.in-addr.arpa [180.240.205.82]
+  8    44 ms    71 ms    30 ms  88.223.14.72.in-addr.arpa [72.14.223.88]
+  9    34 ms    67 ms    32 ms  225.254.170.108.in-addr.arpa [108.170.254.225]
+ 10    66 ms    74 ms    30 ms  107.232.14.72.in-addr.arpa [72.14.232.107]
+ 11    59 ms    69 ms    29 ms  any-in-2678.1e100.net [216.239.38.120]
+
+Trace complete.
+
+19. MOVE -- > memindahkan folder ke folder lain
+Syntax :C:\Users\acer\praxis-academy>MOVE "kemampuan-dasar-1" ../latihan
+Hasil  :  1 dir(s) moved.
+
+20. powercfg -energy -->  membuat laporan konsumsi energi. Laporan ini akan menunjukkan jika ada kegagalan sistem yang mungkin meningkatkan konsumsi daya, seperti perangkat yang mem-blok sleep mode, atau yang tidak dikonfigurasi dengan baik untuk merespon settingan manajemen daya.
+Syntax :C:\Users\acer\praxis-academy>powercfg -energy
+Hasil :Enabling tracing for 60 seconds...
+Observing system behavior...
+Analyzing trace data...
+Analysis complete.
+
+Energy efficiency problems were found.
+
+5 Errors
+30 Warnings
+62 Informational
