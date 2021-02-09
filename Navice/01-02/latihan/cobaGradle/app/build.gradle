@@ -28,3 +28,6 @@ application {
     // Define the main class for the application.
     mainClass = 'cobagradle.App'
 }
+run{
+    standardInput = System.in
+}
