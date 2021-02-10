@@ -4,7 +4,7 @@
 
 package bicycle;
 
-        public class Bicycle{
+        class Bicycle{
         int cadance = 0;
         int speed = 0;
         int gear =1;
