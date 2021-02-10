@@ -21,13 +21,13 @@ Hak akses : Private
 Ketika method dan property dinyatakan sebagai private, maka 
 hanya kelas itu sendiri yang bisa mengakses.
 
-<h3>ABSTRACTION</h3>
+<h2>ABSTRACTION</h2>
 Abstraction adalah proses untuk menyembunyikan detail implementasi dari user sehingga hanya sisi fungsionalitas saja yang ditampilkan, atau dengan kata lain user akan menerima informasi mengenai apa yang dapat dilakukan oleh suatu objek namun user tidak akan mengetahui bagaimana objek itu melakukannya.
 
-<h4>INHERITANCE</h4>
+<h2>INHERITANCE</h2>
 Inheritance adalah konsep OOP dimana sebuah class dapat menurunkan property dan method yang dimilikinya kepada class lain. Konsep inheritance dipakai untuk memanfaatkan fitur code reuse, yakni menghindari terjadinya duplikasi kode program.
 
-<h5>POLIMORFISME</h5>
+<h2>POLIMORFISME</h2>
 Prinsip terakhir dalam OOP adalah polymorphism. Pada dasarnya polymorphism adalah kemampuan suatu pesan atau data untuk diproses lebih dari satu bentuk. 
 Salah satu ciri utama dari OOP adalah adanya polymorphism. Tanpa hal ini, suatu pemrograman tidak bisa dikatakan sebagai OOP.
 Polymorphism sendiri adalah konsep di mana suatu objek yang berbeda-beda dapat diakses melalui interface yang sama.
