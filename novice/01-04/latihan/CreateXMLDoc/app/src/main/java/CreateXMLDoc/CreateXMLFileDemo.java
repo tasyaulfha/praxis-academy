@@ -4,8 +4,6 @@
 package CreateXMLDoc;
 
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.lang.model.element.ElementKind;
-import javax.xml.crypto.dsig.Transform;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
@@ -15,7 +13,6 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import java.io.File;
-import java.security.interfaces.ECKey;
 
 public class CreateXMLFileDemo{
     public static void main(String[] args) {
@@ -48,7 +45,7 @@ public class CreateXMLFileDemo{
 
 
            Element carname1 = doc.createElement("carname");
-           Attr attrType1= doc.createAttribute("type");
+          //Attr attrType1= doc.createAttribute("type");
            attrType.setValue("sports");
            carname1.setAttributeNode(attrType);
            carname1.appendChild(doc.createTextNode("Ferrari 202"));
@@ -58,7 +55,7 @@ public class CreateXMLFileDemo{
            TransformerFactory transformerFactory = TransformerFactory.newInstance();
            Transformer transformer = transformerFactory.newTransformer();
            DOMSource source = new DOMSource(doc);
-           StreamResult result = new StreamResult(new File("/home/tasya/Documents/praxis-academy/novice/01-04/latihan/CreateXMLDoc/cars.xml"));
+           StreamResult result = new StreamResult(new File("cars.xml"));
            transformer.transform(source, result);
 
            //output to console
@@ -67,14 +64,9 @@ public class CreateXMLFileDemo{
 
 
        } catch (Exception e) {
-           //TODO: handle exception
            e.printStackTrace();
        }
     }
-
-
-
-
 }
 
 
