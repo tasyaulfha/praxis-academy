@@ -1,0 +1,58 @@
+
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!ELEMENT employees (employee)*>
+
+<!ELEMENT employee (address,lastname,firstname)>
+<!ATTLIST employee id ID #REQUIRED>
+
+<!ELEMENT firstname (#PCDATA)>
+<!ELEMENT lastname (#PCDATA)>
+<!ELEMENT address (country,state,city,area)>
+<!ATTLIST address type CDATA #REQUIRED>
+
+<!ELEMENT area (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT state (#PCDATA)>
+<!ELEMENT country (#PCDATA)>
+
+
+<?xml version="1.0"?>
+<!DOCTYPE books SYSTEM "employee.dtd">
+
+<employees>
+
+  <employee id="1" type="permanent">
+    <firstname>Hari Krishna</firstname>
+    <lastname>Gurram</lastname>
+    <address type="permanent">
+      <area>Marthali</area>
+      <city>Bangalore</city>
+      <state>Karnataka</state>
+      <country>India</country>
+    </address>
+  </employee>
+  
+  <employee id="2" type="permanent">
+    <firstname>Joel Babu</firstname>
+    <lastname>Chelli</lastname>
+    <address type="temporary">
+      <area>Jubli Hills</area>
+      <city>Hyderababd</city>
+      <state>Andhra Pradesh</state>
+      <country>India</country>
+    </address>
+  </employee>
+  
+  <employee id="3" type="contract">
+    <firstname>Susantha</firstname>
+    <lastname>Sarm</lastname>
+    <address type="permanent">
+      <area>Gandhi Nagar</area>
+      <city>Bhuvaneswar</city>
+      <state>Orissa</state>
+      <country>India</country>
+    </address>
+  </employee>
+
+</employees>
