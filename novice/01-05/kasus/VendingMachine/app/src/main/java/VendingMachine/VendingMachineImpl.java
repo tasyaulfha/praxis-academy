@@ -24,10 +24,12 @@ public class VendingMachineImpl implements VendingMachine{
             itemInventory.put(i,5);
         }
     }
+
     @Override
     public void insertCoin(Coin coin){
         currentBalance = currentBalance + coin.getDenomination();
         cashInventory.add(coin);
+        System.out.println();
     }
     @Override
     public Bucket<Item, List<Coin>> collectItemAndChange() {

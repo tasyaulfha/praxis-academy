@@ -28,3 +28,13 @@ application {
     // Define the main class for the application.
     mainClass = 'KelasDanObjek.App'
 }
+run {
+    standardInput = System.in
+}
+
+jar { 
+    baseName = 'latihan01-05' 
+    version = '1.0' 
+    manifest { 
+         attributes 'Main-Class': 'KelasDanObjek.App' } 
+}    

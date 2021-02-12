@@ -3,12 +3,57 @@
  */
 package KelasDanObjek;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import java.util.Scanner;
+import KelasDanObjek.NestedClasses.*;
+import KelasDanObjek.card.*;
 
+public class App {
+    
+    
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        int pilihan;
+        int exit = 0;    
+        Scanner scan = new Scanner(System.in);
+        do {
+            System.out.println("Latihan 1 Minggu pertama hari ke-4");
+            System.out.println("Silahkan pilih program yang akan dijalankan");
+            System.out.println("[1] Classes and Object(Bicycle)");
+            System.out.println("[2] Classes and Object(Card)");
+            System.out.println("[3] Nested Classes(Shadow Test)");
+            System.out.println("[4] Nested Classes(Data Structure)");
+            pilihan = scan.nextInt();
+            if (pilihan < 1 | pilihan > 4) {
+                System.out.println("Tolong masukkan angka yang sesuai");
+            } else {
+                switch (pilihan) {
+                    case 1:
+                        BicycleMain o1 = new BicycleMain();
+                        o1.main(args);
+                        exit = 1;
+                        break;
+                    case 2:
+                        DisplayDeck o2 = new DisplayDeck();
+                        o2.main(args);
+                        exit = 1;
+                        break;
+                    case 3:
+                        ShadowTest o3 = new ShadowTest();
+                        o3.main(args);
+                        exit = 1;
+                        break;
+                    case 4:
+                        System.out.println("Nested Classes");
+                        exit = 1;
+                    default:
+                        break;
+                }    
+            }    
+        } while (exit == 0);
+        
+        
+        
+        
+                
+        
     }
 }
