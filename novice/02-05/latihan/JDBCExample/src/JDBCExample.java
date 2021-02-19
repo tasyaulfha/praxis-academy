@@ -10,7 +10,7 @@ public class JDBCExample {
             //STEP 2: Register JDBC driver
             Class.forName("org.postgresql.Driver");
             conn = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/testdb",
+                    .getConnection("jdbc:postgresql://localhost:5432/students",
                             "postgres", "123");
 
 
