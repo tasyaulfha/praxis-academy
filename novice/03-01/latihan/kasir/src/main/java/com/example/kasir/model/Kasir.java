@@ -14,9 +14,7 @@ public class Kasir{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
-
     private String nama_barang;
-
     private String harga_barang;
 
     public long getId() {
