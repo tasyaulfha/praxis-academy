@@ -2,26 +2,28 @@ package com.example.crud.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table (name="buku")
     public class Books{
         @Id
-        @Column
+        @GeneratedValue(strategy=GenerationType.AUTO)
         private int bookid;
-        @Column
         private String nama_buku;
-        @Column
         private String penulis;
-        @Column
         private String harga;
         public int getBookid() {
             return bookid;
         }
-        public void setBookid(int bookid) {
-            this.bookid = bookid;
+        public void setNama_buku(String nama_buku) {
+            this.nama_buku = nama_buku;
+        }
+        public String getNama_buku() {
+            return nama_buku;
         }
         public void setPenulis(String penulis) {
             this.penulis = penulis;

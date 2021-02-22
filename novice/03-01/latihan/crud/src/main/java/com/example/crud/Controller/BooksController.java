@@ -19,16 +19,16 @@ public class BooksController{
     private List<Books> getAllBooks(){
         return booksService.getAllBooks();
     }
-    @GetMapping("/buku/{bukuid}")
+    @GetMapping("/get/{bukuid}")
     private Books getBooks(@PathVariable("bookid" ) int bookid){
         return booksService.getBooksById(bookid);
     }
-    @DeleteMapping("/buku/{bookid}")
+    @DeleteMapping("/delete/{bookid}")
     private void deleteBook(@PathVariable("bookid") int bookid)
     {
         booksService.delete(bookid);
     }
-    @PostMapping("/buku")
+    @PostMapping("/post")
     private Books update(@RequestBody Books books)
     {
         booksService.saveOrUpdate(books);
