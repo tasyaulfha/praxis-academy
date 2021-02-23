@@ -15,20 +15,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class BooksController{
     @Autowired
     BooksService booksService;
-    @GetMapping("/buku")
+    @GetMapping(path="/buku")
     private List<Books> getAllBooks(){
         return booksService.getAllBooks();
     }
-    @GetMapping("/get/{bukuid}")
+    @GetMapping(path="/get/{bukuid}")
     private Books getBooks(@PathVariable("bookid" ) int bookid){
         return booksService.getBooksById(bookid);
     }
-    @DeleteMapping("/delete/{bookid}")
+    @DeleteMapping(path="/delete/{bookid}")
     private void deleteBook(@PathVariable("bookid") int bookid)
     {
         booksService.delete(bookid);
     }
-    @PostMapping("/post")
+    @PostMapping(path="/post")
     private Books update(@RequestBody Books books)
     {
         booksService.saveOrUpdate(books);

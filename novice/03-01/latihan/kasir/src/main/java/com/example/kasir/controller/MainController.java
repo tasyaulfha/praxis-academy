@@ -6,7 +6,7 @@ import java.util.Optional;
 import com.example.kasir.model.Kasir;
 import com.example.kasir.repository.KasirRepo;
 
-import org.aspectj.lang.annotation.DeclareParents;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
