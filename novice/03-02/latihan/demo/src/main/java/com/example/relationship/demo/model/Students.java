@@ -1,33 +1,45 @@
 package com.example.relationship.demo.model;
 
-
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table
 public class Students {
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "idDepartment", referencedColumnName="id", insertable = false, updatable = false)
+    private Department department;
     @Id
-    private Integer Id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long Id;
     private String firstName;
     private String lastName;
+    private Long idDepartment;
 
-    @ManyToOne
-    private Department department;
+   public Department getDepartment(){
+       return department;
+   }
+   public void setDepartment(Department department) {
+       this.department = department;
+   }
 
-    public Students(Integer id, String firstName, String lastName){
-        Id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    public Integer getId() {
+    public Long getId() {
         return Id;
     }
+    public void setIdDepartment(Long idDepartment) {
+        this.idDepartment = idDepartment;
+    }
+    public Long getIdDepartment() {
+        return idDepartment;
+    }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         Id = id;
     }
 

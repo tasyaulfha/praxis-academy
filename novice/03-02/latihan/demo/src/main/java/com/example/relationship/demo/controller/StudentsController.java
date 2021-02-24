@@ -1,24 +1,32 @@
 package com.example.relationship.demo.controller;
 
-import com.example.relationship.demo.model.Department;
 import com.example.relationship.demo.model.Students;
+import com.example.relationship.demo.service.StudentsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
+@RestController
+@RequestMapping(path="students")
 public class StudentsController {
     @Autowired
-    private StudentService studentService;
+    private StudentsService studentsService;
 
-    @GetMapping("/students")
-    public List<Students> findAll(){
-        return studentService.findAll();
+    @GetMapping("/getStudents")
+    public List<Students> getAllStudents(){
+        return studentsService.getAllStudents();
     }
-    @GetMapping("/students{id}")
-    public Optional<Students> findById(@PathVariable("id")Integer id){
-        return studentService.findById(id);
-
-    }}
+    @GetMapping("/getStudents/{id}")
+    public Students getStudents(@PathVariable Long id){
+        return studentsService.getStudentsById(id);
+    }
+    @DeleteMapping(path = "/delete/{id}")
+    private void deleteStudents(@PathVariable Long id){
+        studentsService.delete(id);
+    }
+    @PostMapping(path = "/add")
+    public Students addStudents(@RequestBody Students students) {
+        return studentsService.addStudents(students);
+    }
+}

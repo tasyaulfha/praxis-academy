@@ -12,16 +12,16 @@ import javax.persistence.Table;
     public class Books{
         @Id
         @GeneratedValue(strategy=GenerationType.AUTO)
-        private int bookid;
+        private long id;
         private String nama_buku;
         private String penulis;
         private String harga;
         
-        public int getBookid() {
-            return bookid;
+        public long getId() {
+            return id;
         }
-        public void setBookid(int bookid) {
-            this.bookid = bookid;
+        public void setId(int id) {
+            this.id = id;
         }
         public void setNama_buku(String nama_buku) {
             this.nama_buku = nama_buku;

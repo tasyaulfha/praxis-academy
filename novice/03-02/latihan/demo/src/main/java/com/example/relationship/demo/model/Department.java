@@ -1,33 +1,28 @@
 package com.example.relationship.demo.model;
 
-
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.List;
+
+
 
 @Entity
-@Table
+@Table(name="department")
 public class Department {
     @Id
-    private Integer Id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long Id;
     private String name;
-    private String description;
+    private String faculty;
 
-    public Department(Integer id, String name, String description){
-        Id = id;
-        this.name=name;
-        this.description=description;
+
+    public void setId(Long id) {
+         Id = id;
     }
-    @OneToMany(mappedBy = "deparment")
-    private List<Students> students;
-    public Integer getId() {
+    public Long getId() {
         return Id;
-    }
-
-    public void setId(Integer id) {
-        Id = id;
     }
 
     public void setName(String name) {
@@ -38,11 +33,10 @@ public class Department {
         return name;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
-    }
+   public void setFaculty(String faculty) {
+       this.faculty = faculty;
+   }
+   public String getFaculty() {
+       return faculty;
+   }
 }

@@ -11,28 +11,32 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+@RequestMapping(path="buku")
 public class BooksController{
-    @Autowired
-    BooksService booksService;
-    @GetMapping(path="/buku")
+
+    @Autowired  
+    BooksService booksService; 
+
+    @GetMapping(path="/getBuku")
     private List<Books> getAllBooks(){
         return booksService.getAllBooks();
     }
-    @GetMapping(path="/get/{bukuid}")
-    private Books getBooks(@PathVariable("bookid" ) int bookid){
-        return booksService.getBooksById(bookid);
+    @GetMapping(path="/getBuku/{id}")
+    public Books getBooks(@PathVariable Long id) {
+        return booksService.getBooksById(id);
     }
-    @DeleteMapping(path="/delete/{bookid}")
-    private void deleteBook(@PathVariable("bookid") int bookid)
+    @DeleteMapping(path="/delete/{id}")
+    private void deleteBook(@PathVariable Long bookid)
     {
-        booksService.delete(bookid);
+        booksService.delete(id);
     }
-    @PostMapping(path="/post")
-    private Books update(@RequestBody Books books)
-    {
-        booksService.saveOrUpdate(books);
-        return books;
+    @PostMapping(path="/add")
+    public Books addBooks(@RequestBody Books books) {
+        return booksService.addBooks(books);
     }
 
 }
