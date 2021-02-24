@@ -8,17 +8,12 @@ import javax.persistence.*;
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
     private Long id;
-
-    @Column(name="street")
     private String street;
-
-    @Column(name="city")
     private String city;
 
-    @OneToOne(mappedBy = "address")
-    private User user;
+//    @OneToOne(mappedBy = "address")
+//    private User user;
 
     public Long getId() {
         return id;
@@ -44,11 +39,11 @@ public class Address {
         this.city = city;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 }

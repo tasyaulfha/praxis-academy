@@ -2,21 +2,21 @@ package com.example.onetoone.model;
 
 
 import javax.persistence.*;
+import com.example.onetoone.model.Address;
 
 @Entity
 @Table(name="users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
     private Long id;
+    private String username;
 
-    @Column(name="username")
-    private String userName;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="address_id", referencedColumnName = "id")
-    private Address address;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="address_id", referencedColumnName = "id",insertable =false, updatable = false)
+    private  Address address;
+    private Long address_id;
 
     public Long getId() {
         return id;
@@ -26,12 +26,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String getUsername() {
+        return username;
     }
 
     public Address getAddress() {
@@ -40,5 +40,13 @@ public class User {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public void setAddress_id(Long address_id) {
+        this.address_id = address_id;
+    }
+
+    public Long getAddress_id() {
+        return address_id;
     }
 }
