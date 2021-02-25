@@ -17,10 +17,13 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 
@@ -50,6 +53,27 @@ public class AuthRestAPIs {
         String jwt = jwtProvider.generateJwtToken(authentication);
         return ResponseEntity.ok(new JwtResponse(jwt));
     }
+    private String getJwt(HttpServletRequest request) {
+        String bearerToken = request.getHeader("Authorization");
+        if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring(7, bearerToken.length());
+        }
+
+        return null;
+    }
+    @GetMapping("/user")
+    public ResponseEntity<?> user(HttpServletRequest request) {
+        String bearerToken = this.getJwt(request);
+        if (bearerToken == null) {
+            return ResponseEntity.status(403).body("AKSES DITOLAK!");
+        }
+
+        long userId = jwtProvider.getUserIdFromJWT(bearerToken);
+        Optional<User> user = userRepository.findById(userId);
+
+        return ResponseEntity.ok(user);
+    }
+
     @PostMapping(path = "/signup")
     public ResponseEntity registerUser(@Valid @RequestBody SignUpForm signUpRequest){
         if(userRepository.existsByUsername(signUpRequest.getUsername())) {
@@ -93,5 +117,6 @@ public class AuthRestAPIs {
 
                     return ResponseEntity.ok().body("User registered successfully!");
     }
+
     }
 

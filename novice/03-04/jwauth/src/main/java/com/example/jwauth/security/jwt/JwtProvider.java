@@ -6,16 +6,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+
+@Component
 public class JwtProvider {
     private static final Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
-    @Value("${}")
+    @Value("${app.jwtSecret}")
     private String jwtSecret;
 
-    @Value("${}")
+    @Value("${app.jwtExpirationInMs}")
     private int jwtExpiration;
 
     public String generateJwtToken(Authentication authentication) {
@@ -53,4 +56,12 @@ public class JwtProvider {
         return false;
     }
 
+    public Long getUserIdFromJWT(String token) {
+        Claims claims =Jwts.parser()
+                .setSigningKey(jwtSecret)
+                .parseClaimsJws(token)
+                .getBody();
+
+        return Long.parseLong(claims.getSubject());
+    }
 }
