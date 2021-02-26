@@ -1,0 +1,5 @@
+/home/tasya/Documents/praxis-academy/novice/03-04/spring-boot-security-jwt/src/main/java/com/javacodegeeks/example/SpringBootSecurityJwtApplication.java
+/home/tasya/Documents/praxis-academy/novice/03-04/spring-boot-security-jwt/src/main/java/com/javacodegeeks/example/JwtTokenFilter.java
+/home/tasya/Documents/praxis-academy/novice/03-04/spring-boot-security-jwt/src/main/java/com/javacodegeeks/example/JwtProvider.java
+/home/tasya/Documents/praxis-academy/novice/03-04/spring-boot-security-jwt/src/main/java/com/javacodegeeks/example/WebSecurityConfiguration.java
+/home/tasya/Documents/praxis-academy/novice/03-04/spring-boot-security-jwt/src/main/java/com/javacodegeeks/example/SignInDto.java
