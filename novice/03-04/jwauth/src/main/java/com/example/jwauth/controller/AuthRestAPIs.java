@@ -23,13 +23,12 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/jwt")
 public class AuthRestAPIs {
     @Autowired
     AuthenticationManager authenticationManager;
@@ -61,18 +60,18 @@ public class AuthRestAPIs {
 
         return null;
     }
-    @GetMapping("/user")
-    public ResponseEntity<?> user(HttpServletRequest request) {
-        String bearerToken = this.getJwt(request);
-        if (bearerToken == null) {
-            return ResponseEntity.status(403).body("AKSES DITOLAK!");
-        }
-
-        long userId = jwtProvider.getUserIdFromJWT(bearerToken);
-        Optional<User> user = userRepository.findById(userId);
-
-        return ResponseEntity.ok(user);
-    }
+//    @GetMapping("/user")
+//    public ResponseEntity<?> user(HttpServletRequest request) {
+//        String bearerToken = this.getJwt(request);
+//        if (bearerToken == null) {
+//            return ResponseEntity.status(403).body("AKSES DITOLAK!");
+//        }
+//
+//        long userId = jwtProvider.getUserIdFromJWT(bearerToken);
+//        Optional<User> user = userRepository.findById(userId);
+//
+//        return ResponseEntity.ok(user);
+//    }
 
     @PostMapping(path = "/signup")
     public ResponseEntity registerUser(@Valid @RequestBody SignUpForm signUpRequest){
