@@ -4,6 +4,7 @@ package com.example.jwauth.security;
 import com.example.jwauth.security.jwt.JwtAuthEntryPoint;
 import com.example.jwauth.security.jwt.JwtAuthTokenFilter;
 import com.example.jwauth.security.services.UserDetailsServiceImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
