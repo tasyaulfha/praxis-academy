@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Service
 @Transactional
@@ -21,7 +22,7 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public @NotNull Iterable<Product> getAllProducts() {
+    public @NotNull List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 

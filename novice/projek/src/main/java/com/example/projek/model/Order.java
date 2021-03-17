@@ -10,20 +10,29 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @ManyToMany
-    @JoinColumn(name="id_reseller", referencedColumnName = "id",insertable = false,updatable = false )
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_reseller", referencedColumnName = "id", insertable = false, updatable = false)
     private Reseller reseller;
 
-    private Long resellers_id;
+    private Long id_reseller;
 
-    @OneToMany
-    @JoinColumn(name="id_produk", referencedColumnName = "id", insertable = false, updatable = false)
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_produk", referencedColumnName = "id", insertable = false, updatable = false)
     private Product product;
 
-    private Long product_id;
+    private Long id_produk;
 
     private Date tanggal;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Reseller getReseller() {
         return reseller;
@@ -33,12 +42,12 @@ public class Order {
         this.reseller = reseller;
     }
 
-    public Long getResellers_id() {
-        return resellers_id;
+    public Long getId_reseller() {
+        return id_reseller;
     }
 
-    public void setResellers_id(Long resellers_id) {
-        this.resellers_id = resellers_id;
+    public void setId_reseller(Long id_reseller) {
+        this.id_reseller = id_reseller;
     }
 
     public Product getProduct() {
@@ -49,12 +58,12 @@ public class Order {
         this.product = product;
     }
 
-    public Long getProduct_id() {
-        return product_id;
+    public Long getId_produk() {
+        return id_produk;
     }
 
-    public void setProduct_id(Long product_id) {
-        this.product_id = product_id;
+    public void setId_produk(Long id_produk) {
+        this.id_produk = id_produk;
     }
 
     public Date getTanggal() {
@@ -65,4 +74,3 @@ public class Order {
         this.tanggal = tanggal;
     }
 }
-

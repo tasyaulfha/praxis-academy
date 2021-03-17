@@ -6,10 +6,11 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Validated
 public interface ProductService {
-    @NotNull Iterable<Product> getAllProducts();
+    @NotNull List<Product> getAllProducts();
     Product getProduct (@Min(value = 1L, message = "Product ID salah")long id);
     Product save (Product product);
 

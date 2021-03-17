@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Service
 public class ResellerServiceImpl implements ResellerService{
@@ -19,7 +20,7 @@ public class ResellerServiceImpl implements ResellerService{
     }
 
     @Override
-    public @NotNull Iterable<Reseller> getAllResellers() {
+    public @NotNull List<Reseller> getAllResellers() {
         return resellerRepository.findAll();
     }
 
