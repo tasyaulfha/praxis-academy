@@ -3,10 +3,12 @@ package com.example.projek.security.services;
 import com.example.projek.model.Divisi;
 import com.example.projek.repository.DivisiRepository;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
+import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+@Service
 public class DivisiServiceImpl implements DivisiService{
     private DivisiRepository divisiRepository;
 
@@ -20,7 +22,7 @@ public class DivisiServiceImpl implements DivisiService{
     }
 
     @Override
-    public Divisi getDivisi(@Min(value = 1L, message = "Id Divisi tidak ditemukan") Long id) {
+    public Divisi getDivisi(Long id) {
         return divisiRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("ID divisi salah"));
     }
 
