@@ -2,7 +2,7 @@ package com.example.projek.controller;
 
 
 import com.example.projek.model.Reseller;
-import com.example.projek.security.services.ResellerService;
+import com.example.projek.service.ResellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

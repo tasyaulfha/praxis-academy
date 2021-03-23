@@ -1,12 +1,10 @@
-package com.example.projek.security.services;
+package com.example.projek.service;
 
 
 import com.example.projek.model.Reseller;
 import com.example.projek.repository.ResellerRepository;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
-
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 

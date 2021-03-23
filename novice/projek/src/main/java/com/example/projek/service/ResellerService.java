@@ -1,4 +1,4 @@
-package com.example.projek.security.services;
+package com.example.projek.service;
 
 
 import com.example.projek.model.Reseller;
@@ -13,4 +13,5 @@ public interface ResellerService {
     @NotNull List<Reseller> getAllResellers();
     Reseller getReseller (@Min(value=1L, message = "ID Reseller Salah")Long id);
     Reseller save (Reseller reseller);
+
 }

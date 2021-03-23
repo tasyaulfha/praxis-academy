@@ -1,4 +1,4 @@
-package com.example.projek.security.services;
+package com.example.projek.service;
 
 
 import com.example.projek.model.Divisi;
@@ -12,4 +12,5 @@ public interface DivisiService {
     @NotNull Iterable<Divisi> getAllDivisi();
     Divisi getDivisi(@Min(value =1L, message = "Id Divisi tidak ditemukan")Long id);
     Divisi save(Divisi divisi);
+
 }

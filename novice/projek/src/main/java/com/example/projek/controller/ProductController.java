@@ -2,7 +2,7 @@ package com.example.projek.controller;
 
 
 import com.example.projek.model.Product;
-import com.example.projek.security.services.ProductService;
+import com.example.projek.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

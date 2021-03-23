@@ -1,4 +1,4 @@
-package com.example.projek.security.services;
+package com.example.projek.service;
 
 
 import com.example.projek.model.Pegawai;
@@ -33,5 +33,17 @@ public class PegawaiServiceImpl implements PegawaiService{
     @Override
     public Pegawai save(Pegawai pegawai) {
         return pegawaiRepository.save(pegawai);
+    }
+
+    @Override
+    public Pegawai deletePegawai(Long id) {
+        Pegawai pegawai= pegawaiRepository.findById(id).orElse(null);
+        return pegawai;
+    }
+
+    @Override
+    public Pegawai updatePegawai(Long id, Pegawai pegawai) {
+        pegawaiRepository.save(pegawai);
+        return pegawai;
     }
 }

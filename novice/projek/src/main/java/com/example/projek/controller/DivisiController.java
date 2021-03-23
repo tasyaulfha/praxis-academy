@@ -2,7 +2,7 @@ package com.example.projek.controller;
 
 
 import com.example.projek.model.Divisi;
-import com.example.projek.security.services.DivisiService;
+import com.example.projek.service.DivisiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

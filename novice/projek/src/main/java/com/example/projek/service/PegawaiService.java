@@ -1,4 +1,4 @@
-package com.example.projek.security.services;
+package com.example.projek.service;
 
 
 import com.example.projek.model.Pegawai;
@@ -13,4 +13,6 @@ public interface PegawaiService {
     @NotNull List<Pegawai> getAllPegawai();
     Pegawai getPegawai(@Min(value = 1L, message = "ID Pegawai tidak tersedia")Long id);
     Pegawai save(Pegawai pegawai);
+    Pegawai deletePegawai(Long id);
+    Pegawai updatePegawai(Long id, Pegawai pegawai);
 }

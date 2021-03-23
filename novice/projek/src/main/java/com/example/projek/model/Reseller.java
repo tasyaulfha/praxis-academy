@@ -4,6 +4,7 @@ package com.example.projek.model;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name="reseller")
@@ -24,8 +25,19 @@ public class Reseller {
     @Email
     private String email;
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_produk", referencedColumnName = "id", insertable = false, updatable = false)
+    private List<Product> products;
 
-    public Reseller(Long id, @NotNull String name, String username, String nama_toko, String phone, String alamat, @Email String email) {
+    private Long id_produk;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_order", referencedColumnName = "id", insertable = false, updatable = false)
+    private List<Order> orders;
+
+    private Long id_order;
+
+    public Reseller(Long id, @NotNull String name, String username, String nama_toko, String phone, String alamat, @Email String email, List<Product> products, Long id_produk, List<Order> orders, Long id_order) {
         this.id = id;
         this.name = name;
         this.username = username;
@@ -33,9 +45,14 @@ public class Reseller {
         this.phone = phone;
         this.alamat = alamat;
         this.email = email;
+        this.products = products;
+        this.id_produk = id_produk;
+        this.orders = orders;
+        this.id_order = id_order;
     }
 
-    public Reseller(){}
+    public Reseller() {
+    }
 
     public Long getId() {
         return id;
@@ -91,5 +108,37 @@ public class Reseller {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public Long getId_produk() {
+        return id_produk;
+    }
+
+    public void setId_produk(Long id_produk) {
+        this.id_produk = id_produk;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    public Long getId_order() {
+        return id_order;
+    }
+
+    public void setId_order(Long id_order) {
+        this.id_order = id_order;
     }
 }

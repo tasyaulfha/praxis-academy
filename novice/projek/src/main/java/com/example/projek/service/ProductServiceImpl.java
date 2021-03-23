@@ -1,4 +1,4 @@
-package com.example.projek.security.services;
+package com.example.projek.service;
 
 import com.example.projek.model.Product;
 import com.example.projek.repository.ProductRepository;
@@ -6,7 +6,6 @@ import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -27,7 +26,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProduct(long id) {
+    public Product getProduct(Long id) {
         return productRepository
                 .findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("ID Produk Salah"));
@@ -37,5 +36,6 @@ public class ProductServiceImpl implements ProductService {
     public Product save(Product product) {
             return productRepository.save(product);
     }
+
 
 }

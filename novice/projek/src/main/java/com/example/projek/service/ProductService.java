@@ -1,4 +1,4 @@
-package com.example.projek.security.services;
+package com.example.projek.service;
 
 
 import com.example.projek.model.Product;
@@ -11,7 +11,7 @@ import java.util.List;
 @Validated
 public interface ProductService {
     @NotNull List<Product> getAllProducts();
-    Product getProduct (@Min(value = 1L, message = "Product ID salah")long id);
+    Product getProduct (Long id);
     Product save (Product product);
 
 }

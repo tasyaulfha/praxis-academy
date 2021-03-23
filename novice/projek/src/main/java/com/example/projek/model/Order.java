@@ -1,30 +1,46 @@
 package com.example.projek.model;
 
 
-import javax.persistence.*;
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import org.springframework.data.annotation.CreatedDate;
 
+import javax.persistence.*;
+import javax.validation.Valid;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "orderProducts")
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_reseller", referencedColumnName = "id", insertable = false, updatable = false)
-    private Reseller reseller;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @CreatedDate
+    private LocalDate dateCreated;
 
-    private Long id_reseller;
+    private String status;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_produk", referencedColumnName = "id", insertable = false, updatable = false)
-    private Product product;
+    @OneToMany(mappedBy = "pk.order")
+    @Valid
+    private List<OrderProduct> orderProducts = new ArrayList<>();
 
-    private Long id_produk;
+    @Transient
+    public Double getTotalOrderPrice() {
+        double sum = 0D;
+        List<OrderProduct> orderProducts = getOrderProducts();
+        for (OrderProduct op : orderProducts) {
+            sum += op.getTotalPrice();
+        }
 
-    private Date tanggal;
+        return sum;
+    }
 
     public Long getId() {
         return id;
@@ -34,43 +50,33 @@ public class Order {
         this.id = id;
     }
 
-    public Reseller getReseller() {
-        return reseller;
+    public LocalDate getDateCreated() {
+        return dateCreated;
     }
 
-    public void setReseller(Reseller reseller) {
-        this.reseller = reseller;
+    public void setDateCreated(LocalDate dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
-    public Long getId_reseller() {
-        return id_reseller;
+    public String getStatus() {
+        return status;
     }
 
-    public void setId_reseller(Long id_reseller) {
-        this.id_reseller = id_reseller;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public Product getProduct() {
-        return product;
+    public List<OrderProduct> getOrderProducts() {
+        return orderProducts;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setOrderProducts(List<OrderProduct> orderProducts) {
+        this.orderProducts = orderProducts;
     }
 
-    public Long getId_produk() {
-        return id_produk;
+    @Transient
+    public int getNumberOfProducts() {
+        return this.orderProducts.size();
     }
 
-    public void setId_produk(Long id_produk) {
-        this.id_produk = id_produk;
-    }
-
-    public Date getTanggal() {
-        return tanggal;
-    }
-
-    public void setTanggal(Date tanggal) {
-        this.tanggal = tanggal;
-    }
 }
