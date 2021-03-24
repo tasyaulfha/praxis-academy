@@ -27,4 +27,13 @@ public class ResellerController {
     public Reseller addReseller(@RequestBody Reseller reseller){
         return resellerService.save(reseller);
     }
+    @DeleteMapping("/reseller/{id}")
+    public void deleteReseller(@PathVariable Long id){
+        resellerService.deleteReseller(id);
+    }
+    @PutMapping("/reseller/{id}")
+    public Reseller updateReseller(@PathVariable Long id, Reseller reseller){
+        resellerService.updateReseller(id, reseller) ;
+        return reseller;
+    }
 }

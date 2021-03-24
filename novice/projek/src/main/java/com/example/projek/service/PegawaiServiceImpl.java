@@ -36,9 +36,8 @@ public class PegawaiServiceImpl implements PegawaiService{
     }
 
     @Override
-    public Pegawai deletePegawai(Long id) {
-        Pegawai pegawai= pegawaiRepository.findById(id).orElse(null);
-        return pegawai;
+    public void deletePegawai(Long id) {
+      pegawaiRepository.deleteById(id);
     }
 
     @Override

@@ -1,9 +1,11 @@
 package com.example.projek.message.reques;
 
 import com.example.projek.model.Product;
+import com.example.projek.model.Reseller;
 
 public class OrderProductForm {
     private Product product;
+    private Reseller reseller;
     private Integer jumlah;
 
     public Product getProduct() {
@@ -20,5 +22,13 @@ public class OrderProductForm {
 
     public void setJumlah(Integer jumlah) {
         this.jumlah = jumlah;
+    }
+
+    public Reseller getReseller() {
+        return reseller;
+    }
+
+    public void setReseller(Reseller reseller) {
+        this.reseller = reseller;
     }
 }

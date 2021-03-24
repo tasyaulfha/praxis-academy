@@ -1,6 +1,7 @@
 package com.example.projek.service;
 
 
+import com.example.projek.model.Order;
 import com.example.projek.model.Reseller;
 import org.springframework.validation.annotation.Validated;
 
@@ -11,7 +12,9 @@ import java.util.List;
 @Validated
 public interface ResellerService {
     @NotNull List<Reseller> getAllResellers();
-    Reseller getReseller (@Min(value=1L, message = "ID Reseller Salah")Long id);
+    Reseller getReseller (Long id);
     Reseller save (Reseller reseller);
+    Reseller updateReseller(Long id, Reseller reseller);
+    Reseller deleteReseller(Long id);
 
 }

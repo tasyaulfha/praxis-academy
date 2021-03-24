@@ -13,5 +13,7 @@ public interface ProductService {
     @NotNull List<Product> getAllProducts();
     Product getProduct (Long id);
     Product save (Product product);
+    Product deleteProduct(Long id);
+    Product updateProduct(Long id, Product product);
 
 }

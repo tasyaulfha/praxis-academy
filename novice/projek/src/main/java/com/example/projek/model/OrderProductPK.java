@@ -25,6 +25,10 @@ public class OrderProductPK implements Serializable {
     @JoinColumn(name = "product_id")
     private Product product;
 
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name="reseller_id")
+    private Reseller reseller;
+
     public Order getOrder() {
         return order;
     }
@@ -84,5 +88,14 @@ public class OrderProductPK implements Serializable {
             return other.product == null;
         } else return product.equals(other.product);
 
+    }
+
+
+    public Reseller getReseller() {
+        return reseller;
+    }
+
+    public void setReseller(Reseller reseller) {
+        this.reseller = reseller;
     }
 }

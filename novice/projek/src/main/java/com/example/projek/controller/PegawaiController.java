@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pegawai")
+@RequestMapping("/api/pegawai")
 public class PegawaiController {
     @Autowired
     PegawaiService pegawaiService;
@@ -17,19 +17,26 @@ public class PegawaiController {
         this.pegawaiService = pegawaiService;
     }
 
-    @GetMapping("/pegawai")
+    @GetMapping("/")
     public List<Pegawai> getAllPegawai(){
         return pegawaiService.getAllPegawai();
     }
-
-    @PostMapping("/pegawai")
+    @PostMapping("/")
     public Pegawai addPegawai(@RequestBody Pegawai pegawai){
         return pegawaiService.save(pegawai);
     }
-    @DeleteMapping("/pegawai/{id}")
+    @DeleteMapping("/{id}")
     public void deletePegawai(@PathVariable Long id){
         pegawaiService.deletePegawai(id);
     }
+    @PutMapping("/")
+    public Pegawai updatePegawai(@PathVariable Long id, @RequestBody Pegawai pegawai){
+        pegawaiService.updatePegawai(id, pegawai);
+        return pegawai;
+    }
+
+
+
 
 
 }

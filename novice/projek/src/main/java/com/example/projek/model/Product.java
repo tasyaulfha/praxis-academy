@@ -20,15 +20,15 @@ public class Product {
     private String name;
     private int ukuran;
     private Double harga;
-    @ManyToMany
-    @JoinColumn(name = "id_order", referencedColumnName = "id", insertable = false, updatable = false)
-    @JsonIgnore
-    @Nullable
-    private List<Order> order;
-
-
 
     public Product() {
+    }
+
+    public Product(Long id, @NotNull String name, int ukuran, Double harga) {
+        this.id = id;
+        this.name = name;
+        this.ukuran = ukuran;
+        this.harga = harga;
     }
 
     public Long getId() {
@@ -63,12 +63,4 @@ public class Product {
         this.harga = harga;
     }
 
-    @Nullable
-    public Order getOrder() {
-        return (Order) order;
-    }
-
-    public void setOrder(@Nullable Order order) {
-        this.order = (List<Order>) order;
-    }
 }

@@ -12,5 +12,7 @@ public interface DivisiService {
     @NotNull Iterable<Divisi> getAllDivisi();
     Divisi getDivisi(@Min(value =1L, message = "Id Divisi tidak ditemukan")Long id);
     Divisi save(Divisi divisi);
+    Divisi updateDivisi (Long id, Divisi divisi);
+    Divisi deleteDivisi(Long id);
 
 }

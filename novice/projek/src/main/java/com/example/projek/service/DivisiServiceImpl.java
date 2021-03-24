@@ -29,4 +29,16 @@ public class DivisiServiceImpl implements DivisiService{
     public Divisi save(Divisi divisi) {
         return divisiRepository.save(divisi);
     }
+
+    @Override
+    public Divisi updateDivisi(Long id, Divisi divisi) {
+        divisiRepository.save(divisi);
+        return divisi;
+    }
+
+    @Override
+    public Divisi deleteDivisi(Long id) {
+        Divisi divisi = divisiRepository.findById(id).orElse(null);
+        return divisi;
+    }
 }

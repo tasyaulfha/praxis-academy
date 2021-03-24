@@ -21,10 +21,11 @@ public class OrderProduct {
         super();
     }
 
-    public OrderProduct(Order order, Product product, Integer jumlah) {
+    public OrderProduct(Order order, Product product, Reseller reseller, Integer jumlah) {
         pk = new OrderProductPK();
         pk.setOrder(order);
         pk.setProduct(product);
+        pk.setReseller(reseller);
         this.jumlah = jumlah;
     }
 

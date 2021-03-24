@@ -32,4 +32,15 @@ public class ResellerServiceImpl implements ResellerService{
     public Reseller save(Reseller reseller) {
         return resellerRepository.save(reseller);
     }
+
+    @Override
+    public Reseller deleteReseller(Long id){
+        Reseller reseller = resellerRepository.findById(id).orElse(null);
+        return reseller;
+    }
+    @Override
+    public Reseller updateReseller(Long id, Reseller reseller){
+        resellerRepository.save(reseller);
+        return reseller;
+    }
 }

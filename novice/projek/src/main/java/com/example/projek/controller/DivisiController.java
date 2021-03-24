@@ -27,4 +27,14 @@ public class DivisiController {
     public Divisi addDivisi(@RequestBody Divisi divisi){
         return divisiService.save(divisi);
     }
+
+    @DeleteMapping("/divisi/{id}")
+    public void deleteMapping(@PathVariable Long id, Divisi divisi){
+        divisiService.deleteDivisi(id);
+    }
+    @PutMapping("/divisi/{id}")
+    public Divisi updateDivisi(Long id, Divisi divisi){
+        divisiService.updateDivisi(id, divisi);
+        return divisi;
+    }
 }

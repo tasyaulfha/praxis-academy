@@ -5,6 +5,7 @@ import com.example.projek.model.Order;
 import com.example.projek.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDate;
 
@@ -26,12 +27,17 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order create(Order order) {
         order.setDateCreated(LocalDate.now());
-
         return this.orderRepository.save(order);
     }
 
     @Override
-    public void update(Order order) {
-        this.orderRepository.save(order);
+    public Order update(Long id, Order order) {
+       orderRepository.save(order);
+        return order;
+    }
+
+    @Override
+    public void deleteOrder(@PathVariable Long id) {
+        orderRepository.deleteById(id);
     }
 }

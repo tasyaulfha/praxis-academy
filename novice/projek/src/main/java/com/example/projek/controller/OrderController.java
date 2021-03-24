@@ -8,6 +8,7 @@ import com.example.projek.model.OrderProduct;
 import com.example.projek.service.OrderProductService;
 import com.example.projek.service.OrderService;
 import com.example.projek.service.ProductService;
+import com.example.projek.service.ResellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpHeaders;
@@ -36,10 +37,14 @@ public class OrderController {
     @Autowired
     OrderProductService orderProductService;
 
-    public OrderController(OrderService orderService, ProductService productService, OrderProductService orderProductService) {
+    @Autowired
+    ResellerService resellerService;
+
+    public OrderController(OrderService orderService, ProductService productService, OrderProductService orderProductService, ResellerService resellerService) {
         this.orderService = orderService;
         this.productService = productService;
         this.orderProductService = orderProductService;
+        this.resellerService = resellerService;
     }
 
     @GetMapping("/order")
@@ -60,11 +65,11 @@ public class OrderController {
         List<OrderProduct> orderProducts = new ArrayList<>();
         for (OrderProductForm dto : formDtos){
             orderProducts.add(orderProductService.create(new OrderProduct(order, productService.getProduct(dto
-            .getProduct().getId()), dto.getJumlah())));
+            .getProduct().getId()),resellerService.getReseller(dto.getReseller().getId()),dto.getJumlah())));
         }
 
         order.setOrderProducts(orderProducts);
-        this.orderService.update(order);
+        this.orderService.update(order.getId(),order);
 
         String uri = ServletUriComponentsBuilder
                 .fromCurrentServletMapping()
@@ -77,6 +82,18 @@ public class OrderController {
         return new ResponseEntity<>(order, headers , HttpStatus.CREATED);
 
     }
+
+    @PutMapping("/{id}")
+    public Order updateOrder(@PathVariable Long id, @RequestBody Order order){
+        orderService.update(id, order);
+        return order;
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteOrder(@PathVariable Long id){
+        orderService.deleteOrder(id);
+    }
+
 
     private void validateProductExistance(List<OrderProductForm> orderProducts) {
         List<OrderProductForm> list = orderProducts.stream()
