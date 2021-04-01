@@ -1,11 +1,13 @@
 package com.example.projek.controller;
 
 
+import com.example.projek.dto.ProductDto;
 import com.example.projek.model.Product;
 import com.example.projek.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 @RestController
@@ -20,12 +22,24 @@ public class ProductController {
     }
 
     @GetMapping("/product")
-    public List<Product> getAllProduct() {
-        return (List<Product>) productService.getAllProducts();
+    public List<ProductDto> getAllProduct() {
+        return productService.getAllProducts();
     }
+
     @PostMapping("/product")
     public Product addProduct (@RequestBody Product product){
         return productService.save(product);
+    }
+
+    @DeleteMapping("/product/{id}")
+    public String deleteProduct(@PathVariable Long id){
+        productService.deleteProduct(id);
+        return MessageFormat.format("ProductDto {0} has been deleted ", id);
+    }
+    @PutMapping("/product/{id}")
+    public Product updateProduct(@PathVariable Long id, Product product){
+        productService.updateProduct(id,product);
+        return product;
     }
 
 }

@@ -27,7 +27,7 @@ public class Reseller {
 
 //    @ManyToMany(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "id_produk", referencedColumnName = "id", insertable = false, updatable = false)
-//    private List<Product> products;
+//    private List<ProductDto> products;
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_order", referencedColumnName = "id", insertable = false, updatable = false)

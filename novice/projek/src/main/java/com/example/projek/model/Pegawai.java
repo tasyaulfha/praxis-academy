@@ -20,7 +20,6 @@ public class Pegawai {
     @JoinColumn(name="divisi_id", referencedColumnName = "id", insertable = false,updatable = false)
     private Divisi divisi;
 
-    private Long divisi_id;
 
     public Pegawai() {
     }
@@ -57,12 +56,5 @@ public class Pegawai {
         this.divisi = divisi;
     }
 
-    public Long getDivisi_id() {
-        return divisi_id;
-    }
-
-    public void setDivisi_id(Long divisi_id) {
-        this.divisi_id = divisi_id;
-    }
 }
 

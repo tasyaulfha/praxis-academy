@@ -18,7 +18,6 @@ public class OrderProductPK implements Serializable {
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
-    @JsonIgnore
     private Order order;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)

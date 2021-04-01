@@ -35,6 +35,11 @@ public class OrderProduct {
     }
 
     @Transient
+    public Reseller getReseller(){
+        return this.pk.getReseller();
+    }
+
+    @Transient
     public Double getTotalPrice() {
         return getProduct().getHarga() * getJumlah();
     }

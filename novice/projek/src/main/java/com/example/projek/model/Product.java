@@ -1,15 +1,11 @@
 package com.example.projek.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.lang.Nullable;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Entity
-@Table(name="product")
+@Table(name = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,16 +15,21 @@ public class Product {
     @Basic(optional = false)
     private String name;
     private int ukuran;
-    private Double harga;
+    private double harga;
+
+    @ManyToOne
+    private Category category;
 
     public Product() {
+        super();
     }
 
-    public Product(Long id, @NotNull String name, int ukuran, Double harga) {
+    public Product(Long id, @NotNull String name, int ukuran, double harga, Category category) {
         this.id = id;
         this.name = name;
         this.ukuran = ukuran;
         this.harga = harga;
+        this.category = category;
     }
 
     public Long getId() {
@@ -55,12 +56,19 @@ public class Product {
         this.ukuran = ukuran;
     }
 
-    public Double getHarga() {
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public double getHarga() {
         return harga;
     }
 
-    public void setHarga(Double harga) {
+    public void setHarga(double harga) {
         this.harga = harga;
     }
-
 }

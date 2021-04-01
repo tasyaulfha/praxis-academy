@@ -55,7 +55,6 @@ public class Order {
         for (OrderProduct op : orderProducts) {
             sum += op.getTotalPrice();
         }
-
         return sum;
     }
 

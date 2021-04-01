@@ -1,13 +1,14 @@
 package com.example.projek.service;
 
+import com.example.projek.dto.ProductDto;
 import com.example.projek.model.Product;
 import com.example.projek.repository.ProductRepository;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -21,8 +22,16 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public @NotNull List<Product> getAllProducts() {
-        return productRepository.findAll();
+    public List<ProductDto> getAllProducts() {
+       return productRepository.findAll().stream().map(product -> new ProductDto(
+                product.getId(),
+                product.getName(),
+                product.getUkuran(),
+                product.getHarga(),
+                product.getHarga()-2000,
+                product.getHarga()-4000,
+                product.getHarga()-6500,
+                product.getCategory())).collect(Collectors.toList());
     }
 
     @Override
@@ -38,9 +47,8 @@ public class ProductServiceImpl implements ProductService {
 
     }
     @Override
-    public Product deleteProduct(Long id){
-        Product product = productRepository.findById(id).orElse(null);
-        return product;
+    public void deleteProduct(Long id){
+        productRepository.deleteById(id);
     }
 
     @Override
