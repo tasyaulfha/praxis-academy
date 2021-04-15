@@ -1,7 +1,6 @@
 package com.example.projek.controller;
 
 
-import com.example.projek.dto.ProductDto;
 import com.example.projek.model.Product;
 import com.example.projek.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ public class ProductController {
     }
 
     @GetMapping("/product")
-    public List<ProductDto> getAllProduct() {
+    public List<Product> getAllProduct() {
         return productService.getAllProducts();
     }
 

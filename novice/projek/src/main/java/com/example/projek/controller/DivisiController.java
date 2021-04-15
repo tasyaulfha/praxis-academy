@@ -29,7 +29,7 @@ public class DivisiController {
     }
 
     @DeleteMapping("/divisi/{id}")
-    public void deleteMapping(@PathVariable Long id, Divisi divisi){
+    public void deleteDivisi(@PathVariable Long id, Divisi divisi){
         divisiService.deleteDivisi(id);
     }
     @PutMapping("/divisi/{id}")

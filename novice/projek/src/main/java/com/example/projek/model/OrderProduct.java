@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
+import java.util.List;
 
 @Entity
 public class OrderProduct {
@@ -41,8 +42,16 @@ public class OrderProduct {
 
     @Transient
     public Double getTotalPrice() {
-        return getProduct().getHarga() * getJumlah();
+        List<Harga> listHarga = getProduct().getHarga();
+        double price=0.0;
+        for (Harga harga : listHarga) {
+            if (getJumlah()<= harga.getMinQuantity()){
+                price = harga.getHarga() * getJumlah();
+            }
+        }
+        return price;
     }
+
 
     public OrderProductPK getPk() {
         return pk;

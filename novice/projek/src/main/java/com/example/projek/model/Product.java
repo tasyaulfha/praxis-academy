@@ -1,8 +1,15 @@
 package com.example.projek.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -15,21 +22,27 @@ public class Product {
     @Basic(optional = false)
     private String name;
     private int ukuran;
-    private double harga;
+    private String varian;
 
     @ManyToOne
     private Category category;
+
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JoinColumn(name = "harga_id",referencedColumnName = "id")
+    @JsonIgnoreProperties("products")
+    private List<Harga> harga = new ArrayList<>();
 
     public Product() {
         super();
     }
 
-    public Product(Long id, @NotNull String name, int ukuran, double harga, Category category) {
+    public Product(Long id, @NotNull String name, int ukuran, String varian, Category category, @Valid List<Harga> harga) {
         this.id = id;
         this.name = name;
         this.ukuran = ukuran;
-        this.harga = harga;
+        this.varian = varian;
         this.category = category;
+        this.harga = harga;
     }
 
     public Long getId() {
@@ -64,11 +77,20 @@ public class Product {
         this.category = category;
     }
 
-    public double getHarga() {
-        return harga;
+    public String getVarian() {
+        return varian;
     }
 
-    public void setHarga(double harga) {
+    public void setVarian(String varian) {
+        this.varian = varian;
+    }
+
+
+    public void setHarga(List<Harga> harga) {
         this.harga = harga;
+    }
+
+    public List<Harga> getHarga() {
+        return harga;
     }
 }
