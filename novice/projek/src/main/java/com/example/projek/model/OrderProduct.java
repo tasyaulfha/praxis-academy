@@ -43,11 +43,21 @@ public class OrderProduct {
     @Transient
     public Double getTotalPrice() {
         List<Harga> listHarga = getProduct().getHarga();
+        listHarga.sort((a, b) -> {
+            if (a.getMinQuantity() > b.getMinQuantity()) return 1;
+            if (a.getMinQuantity() < b.getMinQuantity()) return -1;
+            return 0;
+        });
         double price=0.0;
+        Harga max = null;
         for (Harga harga : listHarga) {
-            if (getJumlah()<= harga.getMinQuantity()){
-                price = harga.getHarga() * getJumlah();
+            System.out.println(harga.getMinQuantity());
+            if (max == null || (max.getMinQuantity() <= harga.getMinQuantity() && getJumlah() >= harga.getMinQuantity())) {
+                max = harga;
             }
+        }
+        if (max != null) {
+            price = (max.getHarga() * getJumlah());
         }
         return price;
     }

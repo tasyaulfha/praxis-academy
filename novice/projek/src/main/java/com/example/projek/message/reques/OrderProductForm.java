@@ -3,6 +3,8 @@ package com.example.projek.message.reques;
 import com.example.projek.model.Product;
 import com.example.projek.model.Reseller;
 
+import javax.validation.constraints.Min;
+
 public class OrderProductForm {
     private Product product;
     private Reseller reseller;
